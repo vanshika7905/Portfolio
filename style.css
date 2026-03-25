@@ -1,0 +1,35 @@
+/* Custom styles for the portfolio - same as embedded in <style> tag */
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.progress-bar {
+  background-color: #ffbd39;
+  height: 0.7rem;
+  border-radius: 0;
+}
+.progress {
+  background-color: #e9ecef;
+  height: 0.7rem;
+  margin: 0.5rem 0 1.2rem;
+}
+#typing-animation {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  border-right: 3px solid #ffbd39;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.typing-cursor {
+  animation: blink 0.7s step-end infinite;
+}
+.zoom-effect {
+  transition: transform 0.3s ease-out;
+}
+.zoom-effect:hover {
+  transform: scale(1.05);
+}

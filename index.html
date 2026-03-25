@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanshika Dubey | Portfolio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts (Poppins) -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .progress-bar {
+      background-color: #ffbd39;
+      height: 0.7rem;
+      border-radius: 0;
+    }
+    .progress {
+      background-color: #e9ecef;
+      height: 0.7rem;
+      margin: 0.5rem 0 1.2rem;
+    }
+    /* Zoom effect for cards */
+    .zoom-effect {
+      transition: all 0.3s ease-out;
+    }
+    .zoom-effect:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 20px 40px rgba(255, 189, 57, 0.2);
+    }
+    /* Container class for proper centering */
+    .section-container {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    /* Dark theme variables */
+    body.dark-theme {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+    body.dark-theme .bg-white {
+      background-color: #2d2d2d !important;
+    }
+    body.dark-theme .bg-gray-100 {
+      background-color: #262626 !important;
+    }
+    body.dark-theme .bg-gray-50 {
+      background-color: #1f1f1f !important;
+    }
+    body.dark-theme .text-gray-800 {
+      color: #f0f0f0 !important;
+    }
+    body.dark-theme .text-gray-600 {
+      color: #cccccc !important;
+    }
+    body.dark-theme .border-white {
+      border-color: #ffbd39 !important;
+    }
+    body.dark-theme .shadow-lg {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    }
+    body.dark-theme .bg-black {
+      background-color: #000 !important;
+    }
+    body.dark-theme .text-gray-200 {
+      color: #404040 !important;
+    }
+    body.dark-theme .text-gray-100 {
+      color: #404040 !important;
+    }
+    /* Floating animation for profile image */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    /* Pulse animation for theme button */
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    .pulse-glow:hover {
+      animation: pulse-glow 1s ease-in-out infinite;
+    }
+    /* Gradient border animation */
+    .gradient-border {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(60deg, #ffbd39, #ffd966, #ffbd39);
+      background-size: 300% 300%;
+      animation: gradient 3s ease infinite;
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Shine effect for buttons */
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 50%;
+      height: 200%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(25deg);
+      transition: all 0.5s;
+    }
+    .shine-effect:hover::after {
+      left: 120%;
+    }
+    /* Lightbox CSS */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 3px solid #ffbd39;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lightbox-close:hover {
+      color: #ffbd39;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-4 fixed w-full z-50 top-0 backdrop-blur-lg bg-opacity-90">
+    <div class="section-container flex justify-between items-center">
+      <!-- Logo with gradient -->
+      <a href="#" class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ffbd39] to-yellow-300 hover:scale-110 transition-transform duration-300">
+        Portfolio
+      </a>
+      
+      <!-- Desktop Menu + Theme Toggle + Mobile Button -->
+      <div class="flex items-center space-x-6">
+        <!-- Desktop Navigation Links - hidden on mobile -->
+        <ul class="hidden lg:flex space-x-8" id="menu">
+          <li><a href="#home" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Home</a></li>
+          <li><a href="#about" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">About</a></li>
+          <li><a href="#education" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Education</a></li>
+          <li><a href="#experience" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Experience</a></li>
+          <li><a href="#projects" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Projects</a></li>
+          <li><a href="#certificates" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Certificates</a></li>
+          <li><a href="#contact" class="hover:text-[#ffbd39] transition-all duration-300 hover:scale-110 inline-block">Contact</a></li>
+        </ul>
+        
+        <!-- Theme Toggle Button with pulse effect -->
+        <button id="theme-toggle" class="text-white hover:text-[#ffbd39] transition-all duration-300 text-xl pulse-glow">
+          <i class="fas fa-moon" id="theme-icon"></i>
+        </button>
+        
+        <!-- Mobile Menu Button - visible only on mobile -->
+        <button class="block lg:hidden text-white focus:outline-none hover:text-[#ffbd39] transition-colors" id="menu-btn">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile menu - hidden by default, shown on click -->
+    <ul class="lg:hidden hidden flex-col bg-black bg-opacity-95 text-center py-4 backdrop-blur-lg" id="mobile-menu">
+      <li><a href="#home" class="block py-2 hover:text-[#ffbd39] transition-colors">Home</a></li>
+      <li><a href="#about" class="block py-2 hover:text-[#ffbd39] transition-colors">About</a></li>
+      <li><a href="#education" class="block py-2 hover:text-[#ffbd39] transition-colors">Education</a></li>
+      <li><a href="#experience" class="block py-2 hover:text-[#ffbd39] transition-colors">Experience</a></li>
+      <li><a href="#projects" class="block py-2 hover:text-[#ffbd39] transition-colors">Projects</a></li>
+      <li><a href="#certificates" class="block py-2 hover:text-[#ffbd39] transition-colors">Certificates</a></li>
+      <li><a href="#contact" class="block py-2 hover:text-[#ffbd39] transition-colors">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="bg-black text-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+    <div class="section-container flex flex-col lg:flex-row items-center">
+      <!-- Text content - full width on mobile, half on desktop -->
+      <div class="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-center px-4" data-aos="fade-right" data-aos-duration="1000">
+        <span class="text-[#ffbd39] uppercase tracking-wider text-lg animate-pulse">HELLO!</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mt-4">
+          I am <span class="text-[#ffbd39] relative inline-block after:content-[''] after:absolute after:w-full after:h-1 after:bg-[#ffbd39] after:bottom-0 after:left-0 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300">Vanshika Dubey</span>
+        </h1>
+        <h2 class="text-xl sm:text-2xl mt-4 mb-8 opacity-90">Aspiring Data Analyst</h2>
+        <!-- Buttons stacked on mobile, side by side on larger screens -->
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center">
+          <a href="https://github.com/vanshika7905?tab=repositories" class="bg-[#ffbd39] text-black px-8 py-3 rounded-full font-medium hover:bg-yellow-400 transition-all duration-300 uppercase shine-effect relative overflow-hidden transform hover:scale-105">Github</a>
+          <a href="https://www.linkedin.com/in/vanshika-dubey-898513331/" class="border border-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all duration-300 uppercase transform hover:scale-105">Linkedin</a>
+        </div>
+      </div>
+      <!-- Image - centered on all screens -->
+      <div class="lg:w-1/2 flex justify-center px-4" data-aos="fade-left" data-aos-duration="1000">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-[#ffbd39] to-yellow-300 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+          <img src="images/mee.jpg" alt="Profile" class="rounded-lg shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-96 float-animation relative z-10">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="section-container px-4">
+      <!-- Section Title -->
+      <div class="relative text-center mb-12" data-aos="fade-down">
+        <h1 class="text-6xl sm:text-8xl font-black text-gray-100 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">About</h1>
+        <h2 class="text-2xl sm:text-3xl font-bold relative z-10">About Me</h2>
+      </div>
+      
+      <!-- Content stacks on mobile, side by side on desktop -->
+      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+        <!-- Image - full width on mobile, 5/12 on desktop -->
+        <div class="lg:w-5/12" data-aos="fade-right">
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-[#ffbd39] to-yellow-300 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-300"></div>
+            <img src="images/myself.jpeg" alt="About me" class="rounded-lg shadow-lg relative w-full">
+          </div>
+        </div>
+        <!-- Text - full width on mobile, 7/12 on desktop -->
+        <div class="lg:w-7/12" data-aos="fade-left">
+          <div class="space-y-2 mb-6">
+            <p class="hover:translate-x-2 transition-transform duration-300"><span class="font-semibold">Name:</span> Vanshika Dubey</p>
+            <p class="hover:translate-x-2 transition-transform duration-300"><span class="font-semibold">Job Role:</span> Data Analyst (Fresher)</p>
+            <p class="hover:translate-x-2 transition-transform duration-300"><span class="font-semibold">Experience:</span> Fresher/Entry-level</p>
+            <p class="hover:translate-x-2 transition-transform duration-300"><span class="font-semibold">Address:</span> Farrukhabad, Uttar Pradesh, India</p>
+          </div>
+          <p class="mb-6 leading-relaxed text-sm sm:text-base">Motivated and detail-oriented Data Analyst fresher with strong foundation in data analysis, data cleaning, and data visualization. Skilled in Excel, SQL, Python, Power BI and Tableau with hands-on experience through academic and self-initiated projects. Able to clean, analyze, and interpret data to generate meaningful insights and support data-driven decision-making. Eager to learn, grow, and contribute to a data-driven team.</p>
+          
+          <!-- Skills with progress bars - responsive grid -->
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold">Skills</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="group">
+                <div class="flex justify-between"><span>Power BI</span><span>90%</span></div>
+                <div class="progress w-full"><div class="progress-bar group-hover:bg-yellow-400 transition-colors duration-300" style="width:90%"></div></div>
+              </div>
+              <div class="group">
+                <div class="flex justify-between"><span>PYTHON</span><span>85%</span></div>
+                <div class="progress w-full"><div class="progress-bar group-hover:bg-yellow-400 transition-colors duration-300" style="width:85%"></div></div>
+              </div>
+              <div class="group">
+                <div class="flex justify-between"><span>MS Excel</span><span>95%</span></div>
+                <div class="progress w-full"><div class="progress-bar group-hover:bg-yellow-400 transition-colors duration-300" style="width:95%"></div></div>
+              </div>
+              <div class="group">
+                <div class="flex justify-between"><span>SQL</span><span>85%</span></div>
+                <div class="progress w-full"><div class="progress-bar group-hover:bg-yellow-400 transition-colors duration-300" style="width:85%"></div></div>
+              </div>
+              <div class="group">
+                <div class="flex justify-between"><span>Tableau</span><span>85%</span></div>
+                <div class="progress w-full"><div class="progress-bar group-hover:bg-yellow-400 transition-colors duration-300" style="width:85%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects count and LinkedIn button - stacked on mobile, side by side on larger -->
+          <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-8">
+            <div class="group cursor-pointer">
+              <span class="text-3xl font-bold group-hover:text-[#ffbd39] transition-colors" id="projects-count">25</span><span class="text-2xl">+</span>
+              <p class="group-hover:text-[#ffbd39] transition-colors">Projects completed</p>
+            </div>
+            <a href="https://www.linkedin.com/in/vanshika-dubey-898513331/" class="bg-[#ffbd39] text-black px-6 py-3 rounded-full font-medium hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shine-effect relative overflow-hidden inline-block">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-gray-100">
+    <div class="section-container px-4">
+      <!-- Section Title -->
+      <div class="relative text-center mb-12" data-aos="fade-down">
+        <h1 class="text-6xl sm:text-8xl font-black text-gray-200 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">Education</h1>
+        <h2 class="text-2xl sm:text-3xl font-bold relative z-10">Education</h2>
+      </div>
+
+      <!-- Cards - stacked on mobile, 2 columns on tablet/desktop -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <!-- Education 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2" data-aos="flip-left" data-aos-duration="800">
+          <span class="bg-[#ffbd39] text-black px-4 py-1 rounded-full text-sm font-semibold inline-block">2023-2026</span>
+          <h4 class="text-xl font-bold mt-4">Bachelor's of Computer Application (BCA)</h4>
+          <span class="text-[#ffbd39] font-medium">Makhanlal Chaturvedi National University of Journalism and Communication, Bhopal, Madhya Pradesh, India.</span>
+          <p class="mt-4">Grade: First class distinction.</p>
+        </div>
+        <!-- Education 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2" data-aos="flip-right" data-aos-duration="800">
+          <span class="bg-[#ffbd39] text-black px-4 py-1 rounded-full text-sm font-semibold inline-block">2022-2023</span>
+          <h4 class="text-xl font-bold mt-4">Higher Secondary School (CBSE Board)</h4>
+          <span class="text-[#ffbd39] font-medium">St. Lawrence Public School, Farrukhabad, Uttar Pradesh, India.</span>
+          <p class="mt-4">Grade: First class distinction.</p>
+        </div>
+        <!-- Education 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2" data-aos="flip-right" data-aos-duration="800">
+          <span class="bg-[#ffbd39] text-black px-4 py-1 rounded-full text-sm font-semibold inline-block">2020-2021</span>
+          <h4 class="text-xl font-bold mt-4">Secondary School (CBSE Board)</h4>
+          <span class="text-[#ffbd39] font-medium">St. Lawrence Public School, Farrukhabad, Uttar Pradesh, India.</span>
+          <p class="mt-4">Grade: First class distinction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-white">
+    <div class="section-container px-4">
+      <!-- Section Title -->
+      <div class="relative text-center mb-12" data-aos="fade-down">
+        <h1 class="text-6xl sm:text-8xl font-black text-gray-100 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">Experience</h1>
+        <h2 class="text-2xl sm:text-3xl font-bold relative z-10">Experience</h2>
+      </div>
+
+      <!-- Cards - stacked on mobile, 2 columns on tablet/desktop -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          
+        <!-- Experience 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:border-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-left">
+          <!-- Certificate Image (Top) -->
+          <div class="flex justify-center mb-6">
+            <a href="images/deloitte.png" target="_blank">
+              <img src="images/deloitte.png" alt="Deloitte Virtual Internship Certificate" class="w-full max-w-3xl h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+            </a>
+          </div>
+          <!-- Content -->
+          <span class="bg-[#ffbd39] text-black px-4 py-1 rounded-full text-sm font-semibold inline-block">March 2026</span>
+          <h4 class="text-2xl font-bold mt-4">Data Analytics Virtual Job Simulation</h4>
+          <span class="text-[#ffbd39] font-medium text-lg">Deloitte Australia (Forage)</span>
+          <p class="mt-3 text-gray-600">Completed a practical job simulation focused on data analytics and forensic technology tasks.</p>
+          <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600">
+            <li class="hover:text-[#ffbd39] transition-colors">Built an interactive Tableau dashboard.</li>
+            <li class="hover:text-[#ffbd39] transition-colors">Performed data analysis using Excel.</li>
+            <li class="hover:text-[#ffbd39] transition-colors">Derived business insights from datasets.</li>
+          </ul>
+        </div>
+        
+        <!-- Experience 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 hover:border-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl" data-aos="fade-right">
+          <!-- Certificate Image (Top) -->
+          <div class="flex justify-center mb-6">
+            <a href="images/tata.png" target="_blank">
+              <img src="images/tata.png" alt="Tata Virtual Internship Certificate" class="w-full max-w-3xl h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+            </a>
+          </div>
+          <!-- Content -->
+          <span class="bg-[#ffbd39] text-black px-4 py-1 rounded-full text-sm font-semibold inline-block">March 2026</span>
+          <h4 class="text-2xl font-bold mt-4">GenAI Powered Data Analytics Virtual Job Simulation</h4>
+          <span class="text-[#ffbd39] font-medium text-lg">Tata iQ (Forage)</span>
+          <p class="mt-3 text-gray-600">Completed an AI-powered data analytics job simulation focused on financial risk assessment and collections strategy.</p>
+          <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600">
+            <li class="hover:text-[#ffbd39] transition-colors">Conducted Exploratory Data Analysis (EDA) to identify risk indicators.</li>
+            <li class="hover:text-[#ffbd39] transition-colors">Developed a predictive framework for customer delinquency risk.</li>
+            <li class="hover:text-[#ffbd39] transition-colors">Designed an AI-driven collections optimization strategy.</li>
+            <li class="hover:text-[#ffbd39] transition-colors">Applied Generative AI tools for structured insights and business recommendations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gray-100">
+    <div class="section-container px-4">
+      <!-- Section Title -->
+      <div class="relative text-center mb-12" data-aos="fade-down">
+        <h1 class="text-6xl sm:text-8xl font-black text-gray-200 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">Projects</h1>
+        <h2 class="text-2xl sm:text-3xl font-bold relative z-10">Projects</h2>
+        <p class="mt-4 text-sm sm:text-base">Click on any project card to see key learnings and details.</p>
+      </div>
+
+      <!-- Responsive grid: 1 column on mobile, 2 on tablet, 3 on desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- Project 1: Customer Churn Analysis (Python) -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal1" data-aos="zoom-in" data-aos-duration="600">
+          <div class="block overflow-hidden"><img src="images/project1.png" alt="Project 1" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">Customer Churn Analysis (Python)</h3>
+            <p class="text-gray-600 text-sm">Performed exploratory data analysis and built a predictive model to identify key drivers of customer churn for a telecom company.</p>
+          </div>
+        </div>
+
+        <!-- Project 2: Pizza Sales SQL Analysis -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal2" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+          <div class="block overflow-hidden"><img src="images/project2.png" alt="Project 2" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">Pizza Sales SQL Analysis</h3>
+            <p class="text-gray-600 text-sm">Analyzed pizza sales data using advanced SQL queries (joins, subqueries, window functions) to uncover sales trends and revenue patterns.</p>
+          </div>
+        </div>
+
+        <!-- Project 3: Zepto vs Blinkit Dashboard (Power BI) -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal3" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+          <div class="block overflow-hidden"><img src="images/Zepto vs Blinkit Dashboard.png" alt="Project 3" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700"></div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">Zepto vs Blinkit Dashboard (Power BI)</h3>
+            <p class="text-gray-600 text-sm">Designed an interactive Power BI dashboard comparing product availability, pricing, and delivery metrics between two quick-commerce platforms.</p>
+          </div>
+        </div>
+
+        <!-- Project 4: Covid-19 Dashboard (Tableau) -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal4" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+          <div class="block overflow-hidden">
+            <img src="images/covid19.png" alt="COVID-19 India Dashboard" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">COVID-19 India Dashboard (Tableau)</h3>
+            <p class="text-gray-600 text-sm">Interactive Tableau dashboard analyzing COVID-19 impact across India - state-wise deaths, age group vulnerability, gender distribution, testing labs, and vaccination progress.</p>
+          </div>
+        </div>
+
+        <!-- Project 5: Road Accident Dashboard (Excel) -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal5" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
+          <div class="block overflow-hidden">
+            <img src="images/Road Accident Dashboard.png" alt="Road Accident Dashboard" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">Road Accident Dashboard (Excel)</h3>
+            <p class="text-gray-600 text-sm">Interactive Excel dashboard analyzing 453K+ road casualties with filters for weather, area type, road surface, and light conditions.</p>
+          </div>
+        </div>
+
+        <!-- Project 6: Super Store Sales Dashboard & 15-Day Forecast -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect cursor-pointer" data-modal="modal6" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="500">
+          <div class="block overflow-hidden">
+            <img src="images/Super store sales Dashboard.png" alt="Super Store Dashboard" class="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-700">
+          </div>
+          <div class="p-6">
+            <h3 class="font-bold text-xl mb-2 hover:text-[#ffbd39] transition-colors">Super Store Dashboard & 15‑Day Forecast (Power BI)</h3>
+            <p class="text-gray-600 text-sm">Interactive dashboard analyzing 1.57M in sales, profit trends, and state‑wise 15‑day sales forecast for strategic planning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Certificates Section -->
+<section id="certificates" class="py-20 bg-white">
+  <div class="section-container px-4">
+    <!-- Section Title -->
+    <div class="relative text-center mb-12" data-aos="fade-down">
+      <h1 class="text-6xl sm:text-8xl font-black text-gray-100 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">Certificates</h1>
+      <h2 class="text-2xl sm:text-3xl font-bold relative z-10">Certificates</h2>
+      <p class="mt-4 text-sm sm:text-base">Professional certifications and achievements.</p>
+    </div>
+
+    <!-- Responsive grid: 1 column on mobile, 3 on tablet/desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <!-- Certificate 1 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect border border-gray-200 group" data-aos="flip-up">
+        <div class="relative overflow-hidden">
+          <img src="images/c1.png" alt="IBM Data Visualization with Python Certificate" 
+               class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer cert-img">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-[#ffbd39] transition-colors">IBM Data Visualization with Python</h3>
+          <p class="text-gray-600">Cognitive Class Certification</p>
+          <p class="text-sm text-[#ffbd39] mt-2">Issued: 2025</p>
+        </div>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect border border-gray-200 group" data-aos="flip-up" data-aos-delay="100">
+        <div class="relative overflow-hidden">
+          <img src="images/c2.png" alt="SQL Advent Calendar 2025 Certificate" 
+               class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer cert-img">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-[#ffbd39] transition-colors">Interview Master – SQL Advent Calendar 2025</h3>
+          <p class="text-gray-600">SQL Challenge Certification</p>
+          <p class="text-sm text-[#ffbd39] mt-2">Issued: 2025</p>
+        </div>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden zoom-effect border border-gray-200 group" data-aos="flip-up" data-aos-delay="200">
+        <div class="relative overflow-hidden">
+          <img src="images/c3.png" alt="HP Data Science & Analytics Certificate" 
+               class="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-700 cursor-pointer cert-img">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;"></div>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-2 group-hover:text-[#ffbd39] transition-colors">HP LIFE – Data Science & Analytics</h3>
+          <p class="text-gray-600">Online Course Certification</p>
+          <p class="text-sm text-[#ffbd39] mt-2">Issued: 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+  <!-- Lightbox for certificates -->
+  <div id="cert-lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-black text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#ffbd39]/20 to-transparent"></div>
+    <div class="section-container relative z-10 px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4" data-aos="fade-up">More projects on <span class="text-[#ffbd39]">GitHub</span></h2>
+      <h4 class="text-lg sm:text-xl mb-8" data-aos="fade-up" data-aos-delay="100">I love to solve business problems & uncover hidden data stories</h4>
+      <a href="https://github.com/vanshika7905?tab=repositories" class="bg-[#ffbd39] text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-110 inline-block shine-effect relative overflow-hidden" data-aos="zoom-in">GitHub</a>
+    </div>
+  </section>
+
+  <!-- Contact Section (FIXED) -->
+  <section id="contact" class="py-20 bg-gray-100">
+    <div class="section-container px-4">
+      <!-- Section Title -->
+      <div class="relative text-center mb-12" data-aos="fade-down">
+        <h1 class="text-6xl sm:text-8xl font-black text-gray-200 absolute left-1/2 transform -translate-x-1/2 -top-10 select-none">Contact</h1>
+        <h2 class="text-2xl sm:text-3xl font-bold relative z-10">Contact Me</h2>
+        <p class="mt-4 text-sm sm:text-base">Below are the details to reach out to me!</p>
+      </div>
+
+      <!-- Contact Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <!-- Address -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2">
+          <div class="bg-[#ffbd39] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white transition-colors duration-500">
+            <i class="fas fa-map-marker-alt text-2xl text-black"></i>
+          </div>
+          <h3 class="font-bold mb-2 group-hover:text-white transition-colors">Address</h3>
+          <p class="group-hover:text-white transition-colors">Farrukhabad, India</p>
+        </div>
+
+        <!-- Phone -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2">
+          <div class="bg-[#ffbd39] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white transition-colors duration-500">
+            <i class="fas fa-phone-alt text-2xl text-black"></i>
+          </div>
+          <h3 class="font-bold mb-2 group-hover:text-white transition-colors">Contact Number</h3>
+          <p><a href="tel:+917905697401" class="group-hover:text-white transition-colors">+91 7905697401</a></p>
+        </div>
+
+        <!-- Email -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2">
+          <div class="bg-[#ffbd39] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white transition-colors duration-500">
+            <i class="fas fa-envelope text-2xl text-black"></i>
+          </div>
+          <h3 class="font-bold mb-2 group-hover:text-white transition-colors">Email Address</h3>
+          <p><a href="mailto:vanshikadubey03@gmail.com" class="group-hover:text-white transition-colors">vanshikadubey03@gmail.com</a></p>
+        </div>
+
+        <!-- Resume Download (FIXED) -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center group hover:bg-[#ffbd39] transition-all duration-500 transform hover:-translate-y-2">
+          <div class="bg-[#ffbd39] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white transition-colors duration-500">
+            <i class="fas fa-file-download text-2xl text-black"></i>
+          </div>
+          <h3 class="font-bold mb-2 group-hover:text-white transition-colors">Download Resume</h3>
+          <p><a href="Projects/Vanshika Dubey - Data Analyst.pdf" download="Vanshika_Dubey_Resume.pdf" class="group-hover:text-white transition-colors font-semibold">📄 Click to Download</a></p>
+        </div>
+      </div>
+
+      <!-- "Have a Question?" Button (FIXED) -->
+      <div class="text-center mb-12">
+        <h2 class="text-xl sm:text-2xl mb-4">Have a <span class="text-[#ffbd39]">Question?</span></h2>
+        <a href="mailto:vanshikadubey03@gmail.com?subject=Question%20from%20Portfolio" class="bg-[#ffbd39] text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-110 inline-block shine-effect relative overflow-hidden">Click Here</a>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="flex justify-center space-x-4 flex-wrap gap-4">
+        <a href="https://github.com/vanshika7905" class="bg-[#ffbd39] w-12 h-12 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 transform hover:scale-125 hover:rotate-12"><i class="fab fa-github text-black text-xl"></i></a>
+        <a href="https://www.linkedin.com/in/vanshika-dubey-898513331/" class="bg-[#ffbd39] w-12 h-12 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 transform hover:scale-125 hover:rotate-12"><i class="fab fa-linkedin-in text-black text-xl"></i></a>
+        <a href="https://www.instagram.com/vanshika_dubeyyy/" class="bg-[#ffbd39] w-12 h-12 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 transform hover:scale-125 hover:rotate-12"><i class="fab fa-instagram text-black text-xl"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-8 text-center">
+    <div class="section-container px-4">
+      <p class="text-sm sm:text-base">Copyright &copy; <span id="year"></span> All rights reserved </p>
+    </div>
+  </footer>
+
+  <!-- ========== MODALS FOR PROJECTS ========== -->
+  <!-- Modal 1: Customer Churn Analysis -->
+  <div id="modal1" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">Customer Churn Analysis (Python)</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/project1.png" alt="Project" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Conducted in-depth Exploratory Data Analysis (EDA) on telecom customer churn data using Python to identify key drivers influencing customer attrition. Leveraged statistical analysis and visual storytelling to uncover behavioral, demographic, and contract-based patterns impacting churn rates.</p>
+                <h4 class="font-semibold text-lg mb-2">Key Insights & Findings:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li><span class="font-medium">Churn Rate Analysis:</span> Identified overall churn rate of <strong>26.54%</strong>, indicating significant customer attrition risk.</li>
+                  <li><span class="font-medium">Demographic Risk Factor:</span> Senior citizens exhibited a noticeably higher churn probability compared to younger customers.</li>
+                  <li><span class="font-medium">Tenure Impact:</span> Customers with shorter tenure (0–10 months) showed the highest churn tendency, highlighting early lifecycle risk.</li>
+                  <li><span class="font-medium">Contract Type Influence:</span> Month-to-month contract customers churned significantly more than 1-year and 2-year contract holders.</li>
+                  <li><span class="font-medium">Payment Behavior Insight:</span> Electronic check users demonstrated the highest churn rates among all payment methods.</li>
+                  <li><span class="font-medium">Service Adoption Effect:</span> Customers without value-added services (Online Security, Backup, Device Protection, Tech Support) were more likely to churn.</li>
+                  <li><span class="font-medium">Visualization & Analysis:</span> Developed 15+ analytical visualizations (count plots, stacked bars, histograms, distribution plots) to support actionable retention strategies.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">Python | Pandas | NumPy | Data Cleaning | Exploratory Data Analysis | Matplotlib | Seaborn | Jupyter Notebook</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/Customer-chrun-data-analysis.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="Projects/TCA.html" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Pizza Sales SQL Analysis -->
+  <div id="modal2" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">Pizza Sales SQL Analysis</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/project2.png" alt="Pizza Sales SQL" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Performed end-to-end SQL analysis on a relational pizza sales database to uncover revenue trends, customer ordering behavior, and operational performance insights. Worked with four interconnected tables (Orders, Order_Details, Pizza, Pizza_Types) using advanced SQL queries to generate business-driven insights.</p>
+                <h4 class="font-semibold text-lg mb-2">Key Insights & Analysis:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li>Calculated <span class="font-medium">total revenue, total orders, highest-priced pizza, and most popular size</span> using aggregate functions and GROUP BY.</li>
+                  <li>Identified <span class="font-medium">Top 5 best-selling pizzas</span> and most frequently ordered pizza types using JOINs and subqueries.</li>
+                  <li>Analyzed <span class="font-medium">category-wise performance</span> to determine customer preferences and product demand trends.</li>
+                  <li>Examined <span class="font-medium">hourly order distribution and average daily sales</span> to support staffing and inventory optimization.</li>
+                  <li>Determined <span class="font-medium">Top 3 revenue-generating pizzas</span> and their percentage contribution using window functions.</li>
+                  <li>Tracked <span class="font-medium">cumulative revenue trends over time</span> to evaluate business growth patterns.</li>
+                  <li>Built a <span class="font-medium">category-wise revenue leaderboard</span> highlighting top-performing pizzas within each segment.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">MySQL | SQL Server | Complex JOINs | Subqueries | Window Functions | Data Aggregation | Power BI (Visualization)</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/SQL-Pizza-Hut-Analysis.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="Projects/Pizza Sales Analysis SQL.pdf" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Zepto vs Blinkit Dashboard (Power BI) -->
+  <div id="modal3" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">Zepto vs Blinkit Dashboard (Power BI)</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/Zepto vs Blinkit Dashboard.png" alt="Zepto vs Blinkit Dashboard" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Designed an interactive Power BI dashboard comparing key performance metrics between two leading quick-commerce platforms — Zepto and Blinkit. Analyzed sales performance, delivery efficiency, customer ratings, and payment behavior to evaluate operational effectiveness and growth trends.</p>
+                <h4 class="font-semibold text-lg mb-2">Key Insights:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li><span class="font-medium">Total Sales:</span> 664K combined sales analyzed, with peak performance in June (107K) and July (89K).</li>
+                  <li><span class="font-medium">Delivery Efficiency:</span> Average delivery time of 15.49 minutes — a critical KPI in quick-commerce operations.</li>
+                  <li><span class="font-medium">Customer Ratings:</span> Average rating of 2.99/5, highlighting potential service quality improvement areas.</li>
+                  <li><span class="font-medium">Payment Behavior:</span> UPI (35.9%) emerged as the dominant mode, followed by Card (32.81%) and COD (31.29%), indicating strong digital payment adoption.</li>
+                  <li><span class="font-medium">Category Analysis:</span> Performance evaluated across Bakery, Grains, Beverages, Poultry, Dairy, and Snacks.</li>
+                  <li><span class="font-medium">Monthly Sales Trend:</span> Highest growth observed in June–July; lowest in October–November (25K each).</li>
+                  <li><span class="font-medium">Year-over-Year Comparison:</span> Comparative performance analysis between 2024 and 2025 to identify growth trajectory.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">Power BI | DAX | Power Query | Data Modeling | KPI Metrics | Excel | Interactive Dashboards</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/Power-BI-Grocery-Store-War-Zepto-vs-Blinkit.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="https://app.powerbi.com/reportEmbed?reportId=fde155f2-b99f-4007-b35c-c727da4f04a1&autoAuth=true&ctid=72e17210-c3a9-43b0-a27b-628c01e0d874" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Covid-19 Dashboard (Tableau) -->
+  <div id="modal4" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">COVID-19 in India Dashboard (Tableau)</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/covid19.png" alt="COVID-19 India Dashboard" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Developed an interactive Tableau dashboard analyzing COVID-19 impact across India by integrating multiple public datasets. The dashboard provides state-wise, demographic, and vaccination insights through dynamic visualizations and KPI-driven analytics to support data-informed decision making.</p>  
+                <h4 class="font-semibold text-lg mb-2">Key Insights:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li><span class="font-medium">State-wise Death Analysis:</span> Identified Maharashtra, Karnataka, Tamil Nadu, and Delhi among the most impacted states using a filled geographic map visualization.</li>
+                  <li><span class="font-medium">Age Vulnerability Pattern:</span> Higher fatality concentration observed in 60+ and 80+ age groups, indicating increased risk among senior populations.</li>
+                  <li><span class="font-medium">Gender Disparity:</span> Male deaths accounted for <strong>66.76%</strong> compared to <strong>33.24%</strong> female deaths, highlighting significant demographic differences.</li>
+                  <li><span class="font-medium">Testing Infrastructure Analysis:</span> Compared ICMR lab distribution across states (e.g., Maharashtra – 39 labs, Tamil Nadu – 26, Delhi – 18) to evaluate testing capacity.</li>
+                  <li><span class="font-medium">Vaccination Trends:</span> Tracked first dose (56.5 Cr) vs second dose (13.5 Cr) administration and vaccine-wise distribution (Covishield & Covaxin).</li>
+                  <li><span class="font-medium">Interactive Case Comparison:</span> Enabled dynamic filtering to compare confirmed, recovered, and death counts across all states and UTs.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">Tableau | Data Cleaning | Data Blending | Calculated Fields | Geographic Mapping | KPI Dashboards | Interactive Filters</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/Tableau-Covid-19-in-India-Dashboard.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="https://public.tableau.com/app/profile/vanshika.dubey3237/viz/Covid-19Dashboard_17723767794550/Dashboard1?publish=yes" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Road Accident Dashboard (Excel) -->
+  <div id="modal5" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">Road Accident Dashboard (Excel)</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/Road Accident Dashboard.png" alt="Road Accident Dashboard" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Developed an interactive Excel dashboard analyzing <strong>453,051+ road accident records</strong> to identify high-risk factors, casualty patterns, and regional trends. Enabled data-driven safety insights through dynamic filtering and KPI-driven visualizations to support targeted road safety interventions.</p>
+                <h4 class="font-semibold text-lg mb-2">Key Insights:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li><span class="font-medium">453K+ Total Casualties</span> analyzed across multiple years.</li>
+                  <li><span class="font-medium">8,277 Fatal Cases (1.83%)</span> highlighting critical accident severity patterns.</li>
+                  <li><span class="font-medium">Cars accounted for 78.48%</span> of total casualties — highest among all vehicle types.</li>
+                  <li><span class="font-medium">Urban areas (~326K)</span> recorded higher casualties compared to <span class="font-medium">Rural (~274K)</span>.</li>
+                  <li>Identified high-risk trends across <span class="font-medium">Wet, Dry, Snow, and Other</span> road surface conditions.</li>
+                  <li>Comparative analysis of <span class="font-medium">Daylight vs Darkness</span> accident patterns.</li>
+                  <li>Interactive slicers enabled filtering by <span class="font-medium">Date, Year, Weather, and Wind Conditions</span>.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">Microsoft Excel | Pivot Tables | Data Cleaning | Advanced Charts | KPI Metrics | Dashboard Design | Interactive Slicers</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/Road-Accident-Dashboard.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="images/Road Accident Dashboard.png" target="_blank" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition"><i class="fas fa-search mr-2"></i> View Dashboard</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: Super Store Sales Dashboard & 15-Day Forecast (Power BI) -->
+  <div id="modal6" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity modal-backdrop"></div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+      <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:text-left w-full">
+              <div class="flex justify-between items-center">
+                <h3 class="text-2xl leading-6 font-bold text-gray-900">Super Store Sales Dashboard & 15‑Day Forecast</h3>
+                <button class="modal-close text-gray-400 hover:text-gray-600 focus:outline-none">
+                  <i class="fas fa-times text-2xl"></i>
+                </button>
+              </div>
+              <div class="mt-4">
+                <img src="images/Super store sales Dashboard.png" alt="Super Store Sales Dashboard" class="w-full h-64 object-cover rounded-lg mb-4">
+                <p class="text-gray-700 mb-4">Developed a dual-page interactive Superstore dashboard delivering a comprehensive sales performance overview along with a 15-day time-series sales forecast. The solution enables KPI tracking, segment-level analysis, and data-driven demand prediction to support strategic business planning.</p>
+                <h4 class="font-semibold text-lg mb-2">Key Insights – Sales Overview:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li><span class="font-medium">Overall Performance:</span> Total Sales <strong>1.57M</strong>, Quantity <strong>22K</strong>, Profit <strong>175.26K</strong>, Avg. Delivery Time <strong>4 Days</strong>.</li>
+                  <li><span class="font-medium">Customer Segments:</span> Consumer (48.09%) drives highest revenue, followed by Corporate (32.55%) and Home Office (19.35%).</li>
+                  <li><span class="font-medium">Payment Behavior:</span> Online payments dominate (35.38%), indicating digital adoption trends.</li>
+                  <li><span class="font-medium">Shipping Mode Preference:</span> Standard Class contributes highest sales (0.33M), reflecting cost-efficiency preference.</li>
+                  <li><span class="font-medium">Top Revenue Sub-Categories:</span> Phones (197K), Chairs (182K), Binders (175K).</li>
+                  <li><span class="font-medium">Category Contribution:</span> Office Supplies (0.64M) leads, followed by Technology (0.47M) and Furniture (0.45M).</li>
+                  <li><span class="font-medium">Profit Trend Analysis:</span> Monthly profit fluctuates between 10K–30K, indicating seasonal variability.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Key Insights – 15-Day Forecast:</h4>
+                <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+                  <li>Generated 15-day sales forecast using historical time-series data (Jan 2019 – Jan 2021).</li>
+                  <li>State-level demand projection for major markets including California, New York, Texas, Washington, and Florida.</li>
+                  <li>Time-series visualization compares historical trends with projected sales to support proactive inventory planning.</li>
+                  <li>Enables data-driven marketing strategies and stock optimization based on predicted demand patterns.</li>
+                </ul>
+                <h4 class="font-semibold text-lg mb-2">Tech Stack:</h4>
+                <p class="text-gray-700 mb-4">Power BI / Excel | DAX / Pivot Tables | Data Modeling | KPI Dashboards | Time Series Forecasting | Interactive Slicers | Data Visualization</p>
+                <div class="flex space-x-4">
+                  <a href="https://github.com/vanshika7905/Power-BI-Super-Store-Dashboard.git" target="_blank" class="bg-[#ffbd39] text-black px-4 py-2 rounded-full font-medium hover:bg-yellow-400 transition">GitHub</a>
+                  <a href="https://app.powerbi.com/reportEmbed?reportId=572b6bc3-c744-4ad5-8bd3-633516bfc29b&autoAuth=true&ctid=72e17210-c3a9-43b0-a27b-628c01e0d874" target="_blank" class="border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition">Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-theme');
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      
+      if (body.classList.contains('dark-theme')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Modal functionality
+    const modals = document.querySelectorAll('[id^="modal"]');
+    const projectCards = document.querySelectorAll('[data-modal]');
+    const closeButtons = document.querySelectorAll('.modal-close');
+    const backdrops = document.querySelectorAll('.modal-backdrop');
+
+    // Open modal when project card is clicked
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const modalId = card.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden'; // prevent background scrolling
+        }
+      });
+    });
+
+    // Close modal function
+    function closeModal(modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Close when close button is clicked
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const modal = e.target.closest('[id^="modal"]');
+        closeModal(modal);
+      });
+    });
+
+    // Close when clicking outside modal content (on backdrop)
+    backdrops.forEach(backdrop => {
+      backdrop.addEventListener('click', (e) => {
+        const modal = e.target.closest('[id^="modal"]');
+        closeModal(modal);
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modals.forEach(modal => {
+          if (!modal.classList.contains('hidden')) {
+            closeModal(modal);
+          }
+        });
+      }
+    });
+
+    // Lightbox functions
+    function openLightbox(src) {
+      console.log('openLightbox called with src:', src);
+      const lightbox = document.getElementById('cert-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        console.log('Lightbox displayed');
+      } else {
+        console.error('Lightbox elements not found');
+      }
+    }
+
+    function closeLightbox() {
+      console.log('closeLightbox called');
+      const lightbox = document.getElementById('cert-lightbox');
+      if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+  
+   // Attach click event to certificate images with class 'cert-img'
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded');
+  const certImages = document.querySelectorAll('.cert-img');
+  console.log('Found', certImages.length, 'certificate images');
+  certImages.forEach((img, index) => {
+    img.addEventListener('click', function(e) {
+      console.log('Certificate image', index, 'clicked, src:', this.src);
+           openLightbox(this.src);
+    });
+  });
+});
+  </script>
+</body>
+</html>
